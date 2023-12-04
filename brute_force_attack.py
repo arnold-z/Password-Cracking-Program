@@ -1,6 +1,9 @@
 import threading
+import hashlib
+import bcrypt
 from itertools import product
 
+"""
 # A list of characters that can be used in the password
 chars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
                  "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
@@ -107,3 +110,16 @@ t23.join()
 t24.join()
 t25.join()
 t26.join()
+"""
+
+
+
+test = ["ab", "abc", "abcd", "lol"]  
+
+for i in range(len(test)):
+    md5_hash = hashlib.md5(str(test[i]).encode("utf-8"))
+    #print(md5_hash.hexdigest())
+    bcrypt_hash = bcrypt.hashpw(str(test[i]).encode('utf-8'), bcrypt.gensalt(rounds = 12, prefix = b"2a"))
+    print(bcrypt_hash)
+    sha256_hash = hashlib.sha256(str(test[i]).encode("utf-8"))
+    #print(sha256_hash.hexdigest())
