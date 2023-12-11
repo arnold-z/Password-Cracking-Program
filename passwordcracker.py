@@ -16,15 +16,12 @@ chars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "
 # Gets user's current working directory to access the file path of the 10k common passwords text file
 # Loads the top 10k most common passwords txt file into a list
 current_directory = os.getcwd()
-
 relative_path = r"10-million-password-list-top-10000.txt"
-
 file_path = os.path.join(current_directory, relative_path)
 
 with open(file_path, "r") as file:
     common_passwords = file.readlines()
     common_passwords = [line.strip() for line in common_passwords]
-
 
 
 # Calculates all possible combinations of the passwords and puts it into a list
@@ -173,17 +170,12 @@ def brutebcrypt_attack():
         
 # Dictionary to map the password to hash combo
 password_md5hash_combo = {}
-
 password_sha256hash_combo = {}
-
 password_bcrypthash_combo = {}
-
 
 # Stores all the hashes in corresponding order with original password
 md5_hashes = []
-
 bcrypt_hashes = []
-
 sha256_hashes = []
 
 
@@ -197,7 +189,6 @@ def hashmd5():
         password_md5hash_combo[md5_hash] = common_passwords[i]
         md5_hashes.append(md5_hash)
 
-
 # Hashes all passwords in common_passwords list
 # Adds the hash to password_sha256hash_combo dictionary and pairs it to the corresponding password
 # Also adds to sha256_hashes list
@@ -208,7 +199,6 @@ def hashsha256():
         password_sha256hash_combo[sha256_hash] = common_passwords[i]
         sha256_hashes.append(sha256_hash)
 
-
 # Hashes all passwords in common_passwords list
 # Adds the hash to password_bcrypthash_combo dictionary and pairs it to the corresponding password
 # Also adds to bcrypt_hashes list
@@ -218,10 +208,8 @@ def hashbcrypt():
         password_bcrypthash_combo[bcrypt_hash] = common_passwords[i]
         bcrypt_hashes.append(bcrypt_hash)
 
-
 # Sets password according to the user's input
 password = sys.argv[2] 
-
 
 # Checks user arguments to decide which function to run
 if sys.argv[1] == "-b":
