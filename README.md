@@ -79,6 +79,9 @@ Read more [here.](https://www.geeksforgeeks.org/python-itertools-product/)
 
 ## Commands and Arguments 💻
 
+**WARNING** 
+- Brute force attacks and the dictionary attack for bcrypt will take a considerable amount of time.
+
 ### Brute Force (plain text)
 ```
 -b "user password"
